@@ -459,6 +459,22 @@ a>img:hover {
     }
 }
 
+@media (max-width: 600px) {
+    button:hover {
+        box-shadow: 5px 5px 10px #705A44;
+        transform: none;
+        background-color: white;
+    }
+
+    header h2:hover {
+        color: black;
+    }
+
+    li {
+        text-decoration: none;
+    }
+}
+
 @media (max-width: 450px) {
 
     li>a {
@@ -515,7 +531,7 @@ a>img:hover {
     }
 
     #codingkoala img {
-        width: 100px
+        width: 100px;
     }
 
     #codingkoala a {
