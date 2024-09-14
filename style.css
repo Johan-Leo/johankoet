@@ -89,10 +89,12 @@ section {
 }
 
 h2 {
+    position: relative;
     margin: 0px;
     margin-bottom: -10px;
     align-self: end;
     font-size: 40px;
+    z-index: 1;
 }
 
 .deco-bar {
@@ -470,8 +472,12 @@ a>img:hover {
         color: black;
     }
 
-    li {
+    li:hover {
         text-decoration: none;
+    }
+
+    a>img:hover {
+        transform: scale(1);
     }
 }
 
