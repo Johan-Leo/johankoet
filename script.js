@@ -33,7 +33,7 @@ window.addEventListener("scroll", () => {
     illustrationsTitle.classList.remove("move-left");
   }
 
-  if (scrollValue >= 1218) {
+  if (scrollValue >= 2228) {
     codingKoalaTitle.classList.add("move-left");
   } else {
     codingKoalaTitle.classList.remove("move-left");
