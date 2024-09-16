@@ -46,9 +46,22 @@ window.addEventListener("scroll", () => {
     flowers.classList.remove("move-right");
   }
 
-  if (scrollValue >= 1584) {
+  if (scrollValue >= 1584 && window.matchMedia("(max-width: 1200px)").matches) {
+    justABrain.classList.add("move-right");
+  } else if (
+    scrollValue >= 1584 &&
+    window.matchMedia("(min-width: 1200px)").matches
+  ) {
     justABrain.classList.add("move-left");
-  } else {
+  } else if (
+    scrollValue < 1584 &&
+    window.matchMedia("(max-width: 1200px)").matches
+  ) {
+    justABrain.classList.remove("move-right");
+  } else if (
+    scrollValue < 1584 &&
+    window.matchMedia("(min-width: 1200px)").matches
+  ) {
     justABrain.classList.remove("move-left");
   }
 });
@@ -65,56 +78,42 @@ menuButton.addEventListener("click", () => {
   }
 });
 
-window.addEventListener("resize", () => {
-  const width = window.matchMedia("(max-width: 1200px)");
-  if (width.matches) {
-    justABrain.src = "./brain-left.png";
-  } else {
-    justABrain.src = "./justabrain.png";
-  }
-});
-
 let illustrationCounter = 0;
 
 const illustrationsArr = [
   "habib.png",
   "spiky.png",
-  "afgrond.jpg",
   "APPS.png",
-  "bergen.jpg",
-  "bigdog.jpg",
   "Boeket.png",
-  "gevangen.jpg",
   "justabrain.png",
-  "koelkast.png",
-  "meditatie.jpg",
-  "natuur.jpg",
 ];
 
-displayedIllustration.src = illustrationsArr[illustrationCounter];
+const updateIllustration = function () {
+  displayedIllustration.src = illustrationsArr[illustrationCounter];
+  console.log(illustrationCounter);
+};
+updateIllustration();
 
 for (let i = 0; i < illustrationButtons.length; i++) {
   illustrationButtons[i].addEventListener("click", () => {
-    if (
-      illustrationButtons[i].classList.contains("next") &&
-      illustrationCounter <= illustrationCounter.length
-    ) {
-      illustrationCounter += 1;
-    } else if (
-      illustrationButtons[i].classList.contains("previous") &&
-      illustrationCounter >= 0
-    ) {
-      illustrationCounter -= 1;
-    } else if (
-      illustrationButtons[i].classList.contains("next") &&
-      illustrationCounter <= illustrationCounter.length - 1
-    ) {
-      illustrationCounter = 0;
-    } else if (
-      illustrationButtons[i].classList.contains("previous") &&
-      illustrationCounter === 0
-    ) {
-      illustrationCounter = illustrationsArr.length - 1;
+    console.log("click", illustrationButtons[i]);
+
+    if (illustrationButtons[i].classList.contains("next")) {
+      if (illustrationCounter === illustrationsArr.length - 1) {
+        illustrationCounter = 0;
+      } else {
+        illustrationCounter += 1;
+      }
+      updateIllustration();
+    }
+
+    if (illustrationButtons[i].classList.contains("previous")) {
+      if (illustrationCounter === 0) {
+        illustrationCounter = illustrationsArr.length - 1;
+      } else {
+        illustrationCounter -= 1;
+      }
+      updateIllustration();
     }
   });
 }

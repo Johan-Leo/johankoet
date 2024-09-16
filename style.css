@@ -144,11 +144,13 @@ section>a {
 }
 
 img {
-    height: 80%;
+    height: 70%;
 }
 
 .lower-wrapper {
-    height: 700px;
+    display: flex;
+    flex-direction: column;
+    height: 750px;
     width: 90%;
     border-top-right-radius: 132px;
     border-bottom-right-radius: 175px;
@@ -161,13 +163,18 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 80%;
+    height: 90%;
     width: 90%;
     border-top-right-radius: 103px;
     border-bottom-right-radius: 202px;
     background-color: white;
-    padding: 10px 20% 10px 0px;
+    padding: 10px 50px 10px 0px;
     box-shadow: 5px 5px 10px #717552;
+}
+
+.upper-wrapper p {
+    margin: 0px;
+    margin-bottom: 10px;
 }
 
 #illustrations {
@@ -296,7 +303,6 @@ a>img:hover {
 
     .lower-wrapper {
         padding-top: 7px;
-        height: 575px;
         border-top-right-radius: 100px;
         border-bottom-right-radius: 140px;
     }
@@ -355,6 +361,7 @@ a>img:hover {
         height: auto;
         padding: 0;
         z-index: -1;
+        transition: z-index 0.1s 0.2s;
     }
 
     .index-up {
@@ -381,12 +388,11 @@ a>img:hover {
     }
 
     ul {
-        display: grid;
-        position: relative;
+        display: flex;
+        flex-direction: row;
         z-index: -1;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
         justify-content: space-between;
-        transition: margin 0.2s ease-in, z-index 0.1s 0.2s;
+        transition: margin 0.2s ease-in, z-index 0.5s ease-in;
         margin: -10px 5px 0px 0px;
         list-style-type: none;
         height: 18px;
@@ -412,6 +418,10 @@ a>img:hover {
     main {
         width: 100%;
         padding-top: 50px;
+    }
+
+    .upper-wrapper {
+        padding-left: 10px;
     }
 
     h2,
@@ -443,11 +453,6 @@ a>img:hover {
 
     .lower-wrapper {
         grid-area: 3 / 1 / 4 / 3;
-    }
-
-    .upper-wrapper {
-        height: 80%;
-        padding-right: 10%;
     }
 
     #illustrations .lower-wrapper {
@@ -486,6 +491,28 @@ a>img:hover {
 }
 
 @media (max-width: 600px) {
+    section {
+        grid-template-rows: 50px 30px 1000px;
+    }
+
+    .lower-wrapper {
+        height: 1000px;
+    }
+
+    .button-wrapper {
+        justify-content: flex-end;
+    }
+
+    .next {
+        width: 70px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .previous {
+        width: 70px;
+    }
+
     button:hover {
         box-shadow: 5px 5px 10px #705A44;
         transform: none;
@@ -503,6 +530,12 @@ a>img:hover {
     a>img:hover {
         transform: scale(1);
     }
+
+    .upper-wrapper img {
+        height: 45%;
+        width: auto;
+    }
+
 }
 
 @media (max-width: 450px) {
@@ -528,7 +561,7 @@ a>img:hover {
 
     .lower-wrapper {
         width: 96%;
-        height: 425px;
+        height: 750px;
         border-top-right-radius: 60px;
         border-bottom-right-radius: 120px;
     }
@@ -536,7 +569,7 @@ a>img:hover {
     .upper-wrapper {
         border-top-right-radius: 50px;
         border-bottom-right-radius: 100px;
-        padding-right: 5%;
+        padding-right: 30px;
     }
 
     #illustrations .lower-wrapper {
@@ -548,11 +581,6 @@ a>img:hover {
     #illustrations .upper-wrapper {
         border-top-left-radius: 50px;
         border-bottom-left-radius: 100px;
-    }
-
-    .upper-wrapper img {
-        width: 80%;
-        height: auto;
     }
 
     button {
